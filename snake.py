@@ -28,6 +28,9 @@ game_surf = pygame.Surface((400,400))
 game_rect = game_surf.get_rect(topleft = (0,0))
 pygame.Surface.fill(game_surf, "Black")
 pygame.draw.line(game_surf, "White", (0,400), (400,400), 5)
+frick_surf = pygame.Surface((400,100))
+frick_rect = frick_surf.get_rect(topleft = (0,400))
+pygame.Surface.fill(frick_surf, "Black")
 
 #####################################################################################
 highscoreint = 0
@@ -128,6 +131,7 @@ while True:
         screen.blit(welcome_surf, welcome_rect)
         screen.blit(play, play_rect)
         screen.blit(quitgame, quit_rect)
+        screen.blit(frick_surf, frick_rect)
         screen.blit(highscore, highscore_rect)
         pygame.display.flip()
     while Game:
@@ -193,7 +197,7 @@ while True:
                 highscoreint = scoreint
             highscore = smallfont.render("Highscore: " + str(highscoreint), False, "White")
             highscore_rect = highscore.get_rect(bottomright = (390,440))
-            
+
             gameover()
             Menu = True
             Game = False
@@ -202,9 +206,9 @@ while True:
 
 
         screen.blit(game_surf, game_rect)
+        screen.blit(frick_surf, frick_rect)
         screen.blit(highscore, highscore_rect)
         score = smallfont.render(str(scoreint), False, "White")
-        score_rect = score.get_rect(bottomleft = (45,440))
         screen.blit(score, score_rect)
         screen.blit(apple_score, scoreapple_rect)
         screen.blit(apple, apple_rect)
